@@ -1,0 +1,15 @@
+.MovieSearch {
+  font-family: sans-serif;
+  text-align: left;
+  display: inline-block;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.movie-search-area {
+  display: flex;
+  margin-bottom: 20px;
+}
