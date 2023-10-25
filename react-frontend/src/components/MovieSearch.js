@@ -28,13 +28,25 @@ export default function MovieSearch() {
     { field: "year", width: 80 }
   ]);
 
+  // Debouncing
+  // If we type any search query in the input,
+  // it will display after 2 seconds just when we stop changing the input
   useEffect(() => {
-    setMovieList([]);
+    if (searchCriteria.length > 2) {
+      const getMovie = setTimeout(() => {
+        MovieService.getMovieByCriteria(searchCriteria).then((res) => {
+          setMovieList(res.data);
+        });
+      }, 2000);
+      // destroy the instance of the useEffect hook using return,
+      // followed by clearTimeout, every time it finishes
+      return () => clearTimeout(getMovie);
+    }
   }, [searchCriteria]);
 
   const fetchAllMovies = () => {
     //
-    MovieService.getMovies().then((res) => {
+    MovieService.getAllMovies().then((res) => {
       setMovieList(res.data);
     });
     /*
@@ -43,32 +55,35 @@ export default function MovieSearch() {
     */
   };
 
+  /*
+  //fetch call with search criteria pass to server side
   const searchMovie = () => {
-    //fetch call with search criteria pass to server side
+    
     if (searchCriteria) {
-      MovieService.getMovieByName(searchCriteria).then((res) => {
+      MovieService.getMovieByTitle(searchCriteria).then((res) => {
         var movieList = res.data;
         var data = movieList.filter((movie) =>
           movie.title.toLowerCase().includes(searchCriteria.toLowerCase())
         );
         setMovieList(data);
       });
-      /*
+      
       var movieList = require(".././movies.json");
       var data = movieList.filter((movie) =>
         movie.title.toLowerCase().includes(searchCriteria.toLowerCase())
       );
       setMovieList(data);
-      */
+      
     }
   };
+*/
 
   return (
     <div>
       <h1>Movie Search</h1>
       <div className="movie-search-area">
         <SearchBox setSearchCriteria={setSearchCriteria} />
-        <SearchButton searchMovie={searchMovie} />
+        {/* <SearchButton searchMovie={searchMovie} /> */}
         <AllMoviesButton fetchAllMovies={fetchAllMovies} />
       </div>
 
