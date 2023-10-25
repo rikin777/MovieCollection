@@ -1,21 +1,17 @@
 package com.springboot.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.java.exception.GlobalExceptionHandler;
-import com.java.model.Movie;
-import com.java.repository.MovieRepository;
+import com.springboot.exception.MovieNotFoundException;
+import com.springboot.model.Movie;
+import com.springboot.repository.MovieRepository;
 
 @RestController
 @RequestMapping("/api/v1/")
@@ -24,17 +20,17 @@ public class MovieController {
 	@Autowired
 	private MovieRepository movieRepository;
 	
-	// get all movies est api
+	// get all movies api
 	@GetMapping("/movies")
 	public List<Movie> getAllMovies(){
 		return movieRepository.findAll();
 	}
 	
-	// get movie by name rest api
-	@GetMapping("/movies/{name}")
-	public ResponseEntity<Movie> getMovieByName(@PathVariable String name) {
-		Movie movie = movieRepository.findByName(name)
-				.orElseThrow(() -> new MovieNotFoundException("Movie not exist with name :" + name));
+	// get movie by title rest api
+	@GetMapping("/movies/{id}")
+	public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
+		Movie movie = movieRepository.findById(id)
+				.orElseThrow(() -> new MovieNotFoundException("Movie does not exist with id :" + id));
 		return ResponseEntity.ok(movie);
 	}
 	
