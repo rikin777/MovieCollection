@@ -11,27 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.exception.MovieNotFoundException;
 import com.springboot.model.Movie;
-import com.springboot.repository.MovieRepository;
+import com.springboot.service.MovieService;
 
 @RestController
 @RequestMapping("/api/v1/")
 public class MovieController {
 
 	@Autowired
-	private MovieRepository movieRepository;
+	private MovieService movieService;
 	
 	// get all movies api
 	@GetMapping("/movies")
 	public List<Movie> getAllMovies(){
-		return movieRepository.findAll();
+		return movieService.getAllMovies();
 	}
-	
+	/*
 	// get movie by title rest api
 	@GetMapping("/movies/{id}")
 	public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
-		Movie movie = movieRepository.findById(id)
+		Movie movie = movieService.findById(id)
 				.orElseThrow(() -> new MovieNotFoundException("Movie does not exist with id :" + id));
 		return ResponseEntity.ok(movie);
 	}
-	
+	*/
 }
+//https://stackoverflow.com/questions/18852059/java-list-containsobject-with-field-value-equal-to-x

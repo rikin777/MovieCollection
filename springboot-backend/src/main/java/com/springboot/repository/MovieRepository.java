@@ -1,11 +1,18 @@
 package com.springboot.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.springboot.model.Movie;
 
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long>{
+public class MovieRepository{
+	
+	public List<Movie> getAllMovies(){
+		return new ArrayList<Movie>();
+	}
 
 }
