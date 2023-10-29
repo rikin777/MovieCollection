@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.exception.MovieNotFoundException;
 import com.springboot.model.Movie;
+import com.springboot.service.IMovieService;
 import com.springboot.service.MovieService;
 
 @RestController
@@ -18,21 +19,26 @@ import com.springboot.service.MovieService;
 public class MovieController {
 
 	@Autowired
-	private MovieService movieService;
+	private IMovieService movieService;
 	
 	// get all movies api
 	@GetMapping("/movies")
 	public List<Movie> getAllMovies(){
 		return movieService.getAllMovies();
 	}
-	/*
+	
 	// get movie by title rest api
-	@GetMapping("/movies/{id}")
-	public ResponseEntity<Movie> getMovieById(@PathVariable Long id) {
-		Movie movie = movieService.findById(id)
-				.orElseThrow(() -> new MovieNotFoundException("Movie does not exist with id :" + id));
-		return ResponseEntity.ok(movie);
+	@GetMapping("/movies/{searchCriteria}")
+	public ResponseEntity<List<Movie>> getMovieByCriteria(@PathVariable String searchCriteria) {
+		List<Movie> listMovies = movieService.findByCriteria(searchCriteria);
+				//.orElseThrow(() -> new MovieNotFoundException("Movie does not exist with id :" + searchCriteria));
+		return ResponseEntity.ok(listMovies);
 	}
-	*/
+	
 }
-//https://stackoverflow.com/questions/18852059/java-list-containsobject-with-field-value-equal-to-x
+//Fetch all movies API call:
+//http://localhost:8080/api/v1/movies
+
+//Fetch movies by search criteria API call:
+//http://localhost:8080/api/v1/movies/god
+//Returns 2 results

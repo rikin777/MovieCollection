@@ -11,7 +11,7 @@ public class Movie {
 	
   @Column(name = "RANK")
 	private long rank;
-	
+
   @Column(name = "TITLE")
 	private String title;
 	
@@ -87,4 +87,9 @@ public class Movie {
 		this.year = year;
 	}
 
+	  @Override
+	  public String toString() {
+	  	return "Movie [id=" + id + ", rank=" + rank + ", title=" + title + ", type=" + type + ", runningTime=" + runningTime
+	  			+ ", rating=" + rating + ", year=" + year + "]";
+	  }
 }

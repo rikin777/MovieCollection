@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "rank": 1,
+    "title": "The Shawshank Redemption",
+    "type": "movie",
+    "runningTime": "2h 22m",
+    "rating": "9.3",
+    "year": 1994
+  },
+  {
+    "id": 2,
+    "rank": 2,
+    "title": "The Godfather",
+    "type": "movie",
+    "runningTime": "2h 55m",
+    "rating": "9.2",
+    "year": 1972
+  },
+  {
+    "id": 3,
+    "rank": 3,
+    "title": "The Dark Knight",
+    "type": "movie",
+    "runningTime": "2h 32m",
+    "rating": "9.0",
+    "year": 2008
+  },
+  {
+    "id": 4,
+    "rank": 4,
+    "title": "The Godfather Part II",
+    "type": "movie",
+    "runningTime": "3h 22m",
+    "rating": "9.0",
+    "year": 1974
+  },
+  {
+    "id": 5,
+    "rank": 5,
+    "title": "12 Angry Men",
+    "type": "movie",
+    "runningTime": "1h 36m",
+    "rating": "9.0",
+    "year": 1957
+  },
+  {
+    "id": 6,
+    "rank": 6,
+    "title": "Schindler's List",
+    "type": "movie",
+    "runningTime": "3h 15m",
+    "rating": "9.0",
+    "year": 1993
+  },
+  {
+    "id": 7,
+    "rank": 7,
+    "title": "The Lord of the Rings: The Return of the King",
+    "type": "movie",
+    "runningTime": "3h 21m",
+    "rating": "9.0",
+    "year": 2003
+  },
+  {
+    "id": 8,
+    "rank": 8,
+    "title": "Pulp Fiction",
+    "type": "movie",
+    "runningTime": "2h 34m",
+    "rating": "8.8",
+    "year": 1994
+  },
+  {
+    "id": 9,
+    "rank": 9,
+    "title": "The Lord of the Rings: The Fellowship of the Ring",
+    "type": "movie",
+    "runningTime": "2h 58m",
+    "rating": "8.8",
+    "year": 2001
+  },
+  {
+    "id": 10,
+    "rank": 10,
+    "title": "The Good, the Bad and the Ugly",
+    "type": "movie",
+    "runningTime": "2h 58m",
+    "rating": "8.8",
+    "year": 1966
+  }
+]
