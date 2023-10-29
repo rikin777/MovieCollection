@@ -9,11 +9,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.springboot.exception.MovieNotFoundException;
 import com.springboot.model.Movie;
 import com.springboot.service.IMovieService;
-import com.springboot.service.MovieService;
 
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 public class MovieController {
@@ -31,7 +30,6 @@ public class MovieController {
 	@GetMapping("/movies/{searchCriteria}")
 	public ResponseEntity<List<Movie>> getMovieByCriteria(@PathVariable String searchCriteria) {
 		List<Movie> listMovies = movieService.findByCriteria(searchCriteria);
-				//.orElseThrow(() -> new MovieNotFoundException("Movie does not exist with id :" + searchCriteria));
 		return ResponseEntity.ok(listMovies);
 	}
 	
