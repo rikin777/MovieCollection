@@ -16,7 +16,7 @@ import MovieService from "../services/MovieService";
 
 export default function MovieSearch() {
   const [movieList, setMovieList] = useState([]);
-  const [searchCriteria, setSearchCriteria] = useState(null);
+  const [searchCriteria, setSearchCriteria] = useState("");
 
   const [columnDefs] = useState([
     { field: "id", width: 80 },
